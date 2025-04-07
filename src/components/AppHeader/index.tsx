@@ -82,7 +82,9 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
           <Box sx={{ flex: 1, justifyContent: "flex-end", display: "flex" }}>
             {user && user.eMail && (
               <Grow in={Boolean(user && user.eMail)}>
+                <div>
                 <AvatarMenu user={user} />
+                </div>
               </Grow>
             )}
           </Box>
