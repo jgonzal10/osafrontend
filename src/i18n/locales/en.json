@@ -11,28 +11,28 @@
     "issues": [
       {
         "icon": "🐞",
-        "title": "Konsolenfehler: Warnung: Jedes Element in einer Liste benötigt eine eindeutige 'key'-Property.",
-        "description": "Hoffentlich können Sie die Ursache dieses Fehlers finden, da er sehr störend ist."
+        "title": "Console error: Warning: Each child in a list should have a unique \"key\" prop.",
+        "description": "Hope you are able to find what is causing this error, as it is annoying."
       },
       {
         "icon": "🐞",
-        "title": "Das Wort 'known' sollte im Einführungstext fett dargestellt werden.",
-        "description": "Bitte stellen Sie bei der Lösung sicher, dass der i18n-Text nicht verändert wird."
+        "title": "The word \"known\" should be displayed bold in the introduction text.",
+        "description": "When implementing a solution, please ensure to not change the i18n text."
       },
       {
         "icon": "🐞",
-        "title": "Benutzer-Avatar in der App-Leiste fehlt, obwohl der Benutzer beim Start korrekt geladen werden sollte.",
-        "description": "Beim App-Start laden wir das aktuelle Benutzerobjekt über einen MobX-Store, aber aus irgendeinem Grund wird der Benutzer-Avatar nicht oben rechts in der App-Leiste angezeigt. Achtung: Bei der Lösung dieses Problems könnten Sie auf einen zweiten Fehler stoßen."
+        "title": "User avatar in app bar is missing, although user should be fetched on app start correctly.",
+        "description": "On app start we load the current user object via a MobX store, but for any reason the user avatar is not displayed in the top right of the app bar. Attention: When solving this issue, you might will be confronted with a second bug."
       },
       {
         "icon": "🐞",
-        "title": "Optional: Countdown funktioniert manchmal nicht (schwer reproduzierbar).",
-        "description": "Einige Entwickler haben berichtet, dass der Countdown in der App-Header-Leiste manchmal seltsames Verhalten zeigt, aber leider konnten sie dieses Problem nicht zuverlässig reproduzieren. Vielleicht finden Sie die Ursache."
+        "title": "Optional: Countdown is broken sometimes (hard to reproduce).",
+        "description": "Some developers mentioned that the countdown in the app header behaves strange sometimes, but unfortunately they were not able to reproduce this glitch reliably, maybe you find the root cause."
       },
       {
         "icon": "⭐️",
-        "title": "Optional: Es wäre toll, die Sprache wechseln zu können.",
-        "description": "Bitte fügen Sie eine Sprachauswahl in der App-Leiste hinzu, um zwischen Englisch und Deutsch zu wechseln."
+        "title": "Optional: It would be great to be able to switch the language.",
+        "description": "Please add a language select control in the app bar to swicth the UI language between english and german."
       }
     ]
   }

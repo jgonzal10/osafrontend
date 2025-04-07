@@ -35,24 +35,31 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
   const { t } = useTranslation("app");
   const theme = useTheme();
   const supportedLangs = [
-    { code: 'en', name: 'English' },
-    { code: 'de', name: 'Deutsch' },
+    { code: "en", name: "English" },
+    { code: "de", name: "Deutsch" },
   ];
-
 
   const [count, setCount] = useState(0);
   const hours = 1;
   const minutes = hours * 60;
   const seconds = minutes * 60;
-  const countdown = seconds - count;
-  const countdownMinutes = `${~~(countdown / 60)}`.padStart(2, "0");
+  const countdown = Math.max(seconds - count, 0); // Prevents negative values
+  const countdownMinutes = `${Math.floor(countdown / 60)}`.padStart(2, "0");
   const countdownSeconds = (countdown % 60).toFixed(0).padStart(2, "0");
 
   useEffect(() => {
-    setInterval(() => {
-      setCount((c) => c + 1);
+    const interval = setInterval(() => {
+      setCount((counter) => {
+        if (counter >= seconds) {
+          clearInterval(interval);
+          return counter;
+        }
+        return counter + 1;
+      });
     }, 1000);
-  }, []);
+
+    return () => clearInterval(interval); // Clear interval when component unmounts
+  }, [seconds]);
 
   return (
     <AppBar ref={ref} position="fixed" sx={{ width: "100vw" }}>
@@ -94,7 +101,7 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
               </Grow>
             )}
           </Box>
-          <Box sx={{ justifyContent: "flex-end" }}>
+          <Box sx={{flex: 0, justifyContent: "flex-end"}}>
             <select
               value={i18n.language}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
