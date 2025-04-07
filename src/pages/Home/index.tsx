@@ -6,9 +6,17 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { Trans, useTranslation } from "react-i18next";
 
+interface Issue {
+  icon:string,
+  title: string,
+  description: string
+}
+
 const Home = () => {
   const { t } = useTranslation("app");
-  const issues = [
+  {t("home.sidenote")}
+  const issues:Issue[] = t("home.issues", { returnObjects: true });
+  const issues2 = [
     {
       icon: "🐞",
       title:

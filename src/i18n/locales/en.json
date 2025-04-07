@@ -7,6 +7,33 @@
   "home": {
     "welcome": "Welcome!",
     "intro": "This is a demo application with some glitches and bugs, where we hope that you can finde them. 😃 Here the list of <b>known</b> issues:",
-    "sidenote": "All bugs have a different level of complexity and all of them are pretty common (real wolrd problems for any react developer). To solve all open points a different set of skills are required: googling, experience, reading docs and error messages, creativity and analytical thinking."
+    "sidenote": "All bugs have a different level of complexity and all of them are pretty common (real wolrd problems for any react developer). To solve all open points a different set of skills are required: googling, experience, reading docs and error messages, creativity and analytical thinking.",
+    "issues": [
+      {
+        "icon": "🐞",
+        "title": "Konsolenfehler: Warnung: Jedes Element in einer Liste benötigt eine eindeutige 'key'-Property.",
+        "description": "Hoffentlich können Sie die Ursache dieses Fehlers finden, da er sehr störend ist."
+      },
+      {
+        "icon": "🐞",
+        "title": "Das Wort 'known' sollte im Einführungstext fett dargestellt werden.",
+        "description": "Bitte stellen Sie bei der Lösung sicher, dass der i18n-Text nicht verändert wird."
+      },
+      {
+        "icon": "🐞",
+        "title": "Benutzer-Avatar in der App-Leiste fehlt, obwohl der Benutzer beim Start korrekt geladen werden sollte.",
+        "description": "Beim App-Start laden wir das aktuelle Benutzerobjekt über einen MobX-Store, aber aus irgendeinem Grund wird der Benutzer-Avatar nicht oben rechts in der App-Leiste angezeigt. Achtung: Bei der Lösung dieses Problems könnten Sie auf einen zweiten Fehler stoßen."
+      },
+      {
+        "icon": "🐞",
+        "title": "Optional: Countdown funktioniert manchmal nicht (schwer reproduzierbar).",
+        "description": "Einige Entwickler haben berichtet, dass der Countdown in der App-Header-Leiste manchmal seltsames Verhalten zeigt, aber leider konnten sie dieses Problem nicht zuverlässig reproduzieren. Vielleicht finden Sie die Ursache."
+      },
+      {
+        "icon": "⭐️",
+        "title": "Optional: Es wäre toll, die Sprache wechseln zu können.",
+        "description": "Bitte fügen Sie eine Sprachauswahl in der App-Leiste hinzu, um zwischen Englisch und Deutsch zu wechseln."
+      }
+    ]
   }
 }

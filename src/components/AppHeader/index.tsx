@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { User } from "../../api/services/User/store";
 import AvatarMenu from "../AvatarMenu";
+import i18n from "../../i18n";
 
 interface AppBarProps extends MuiAppBarProps {
   theme?: Theme;
@@ -19,20 +20,25 @@ const typoStyle = {
   display: "flex",
   alignContent: "center",
   justifyContent: "center",
-  lineHeight: 1
+  lineHeight: 1,
 };
 
 const AppBar = styled(MuiAppBar)<AppBarProps>(({ theme }) => ({
   zIndex: theme.zIndex.drawer + 1,
   backgroundColor: theme.palette.common.black,
   color: theme.palette.common.white,
-  height: theme.tokens.header.height
+  height: theme.tokens.header.height,
 }));
 
 const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
   const { user, pageTitle } = props;
   const { t } = useTranslation("app");
   const theme = useTheme();
+  const supportedLangs = [
+    { code: 'en', name: 'English' },
+    { code: 'de', name: 'Deutsch' },
+  ];
+
 
   const [count, setCount] = useState(0);
   const hours = 1;
@@ -63,7 +69,7 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
               sx={{
                 ...typoStyle,
                 color: theme.palette.primary.main,
-                mb: theme.spacing(0.5)
+                mb: theme.spacing(0.5),
               }}
               variant="h6"
               component="div"
@@ -83,10 +89,23 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
             {user && user.eMail && (
               <Grow in={Boolean(user && user.eMail)}>
                 <div>
-                <AvatarMenu user={user} />
+                  <AvatarMenu user={user} />
                 </div>
               </Grow>
             )}
+          </Box>
+          <Box sx={{ justifyContent: "flex-end" }}>
+            <select
+              value={i18n.language}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+              style={{ padding: "4px", borderRadius: "4px" }}
+            >
+              {supportedLangs.map((lang) => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
           </Box>
         </Box>
       </Toolbar>
